@@ -16,3 +16,4 @@ public class DetailComposant {
     @OneToOne
     private Composant composant;
 }
+

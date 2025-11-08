@@ -2,6 +2,8 @@ package tn.esprit.twin.projectspring.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Composant {
     @Id
@@ -13,4 +15,8 @@ public class Composant {
 
     @OneToOne(mappedBy = "composant")
     private DetailComposant detailComposant;
+
+    @ManyToMany(mappedBy = "composants")
+    private List<Menu> menus;
 }
+

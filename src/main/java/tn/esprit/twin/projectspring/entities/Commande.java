@@ -1,10 +1,17 @@
 package tn.esprit.twin.projectspring.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
+
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Commande {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +26,11 @@ public class Commande {
     @ManyToOne
     private Client client;
 
-    @ManyToMany(mappedBy = "commandes")
-    private List<Menu> menus;
-
     @ManyToMany
     private List<ChefCuisinier> chefs;
-}
 
+    @ManyToMany
+    private List<Menu> menus;
+
+
+}

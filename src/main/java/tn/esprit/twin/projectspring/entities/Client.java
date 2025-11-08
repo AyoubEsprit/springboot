@@ -1,21 +1,26 @@
 package tn.esprit.twin.projectspring.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-import java.time.LocalDate;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
 
     private String identifiant;
-    private LocalDate datePremiereVisite;
+    private Date datePremiereVisite;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    @ToString.Exclude
     private List<Commande> commandes;
 }
-

@@ -18,3 +18,5 @@ public class ChefCuisinier {
     @ManyToMany(mappedBy = "chefs")
     private List<Commande> commandes;
 }
+
+

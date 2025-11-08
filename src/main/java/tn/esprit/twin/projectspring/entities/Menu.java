@@ -19,10 +19,11 @@ public class Menu {
     @ManyToOne
     private Restaurant restaurant;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "menus")
     private List<Commande> commandes;
 
     @ManyToMany
     private List<Composant> composants;
 }
+
 
